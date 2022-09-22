@@ -10,4 +10,6 @@ DML COMMANDS(INSERT,DELETE)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SID
 ## EXPERIMENT-4
 dml commands(UPDATE,DELETE)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%204.txt)
 ## EXPERIMENT-5
-DML COMMANDS(SELECT with various clause-WHERE,pattern matching)-()
+DML COMMANDS(SELECT with various clause-WHERE,pattern matching)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%205.txt)
+## EXPERIMENT-6
+DML COMMANDS(SELECT with various clause,BETWEEN,IN,aggregate function)-()
