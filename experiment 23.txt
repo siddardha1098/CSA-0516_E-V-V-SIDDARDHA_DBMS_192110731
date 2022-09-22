@@ -1,0 +1,168 @@
+mysql> create table generalhospital(staffnames char(45),doctorname char(45),patientname char(45));
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> desc generalhospital;
++-------------+----------+------+-----+---------+-------+
+| Field       | Type     | Null | Key | Default | Extra |
++-------------+----------+------+-----+---------+-------+
+| staffnames  | char(45) | YES  |     | NULL    |       |
+| doctorname  | char(45) | YES  |     | NULL    |       |
+| patientname | char(45) | YES  |     | NULL    |       |
++-------------+----------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into generalhospital values('sheela','DR.deepa','bhargav'),('rama','DR.devi''gnanesh'),('faima','DR.inaya','priya');
+ERROR 1136 (21S01): Column count doesn't match value count at row 2
+mysql> insert into generalhospital values('sheela','DR_deepa','bhargav'),('rama','DR_devi''gnanesh'),('faima','DR_inaya','priya');
+ERROR 1136 (21S01): Column count doesn't match value count at row 2
+mysql> insert into generalhospital values('sheela','DR_deepa','bhargav'),('rama','DR_devi','gnanesh'),('faima','DR_inaya','priya');
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from generalhospital;
++------------+------------+-------------+
+| staffnames | doctorname | patientname |
++------------+------------+-------------+
+| sheela     | DR_deepa   | bhargav     |
+| rama       | DR_devi    | gnanesh     |
+| faima      | DR_inaya   | priya       |
++------------+------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> create table patient(patientname char(45),age int(45),gender char(56),appointmentno int(90));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from patient;
+Empty set (0.00 sec)
+
+mysql> desc patient;
++---------------+----------+------+-----+---------+-------+
+| Field         | Type     | Null | Key | Default | Extra |
++---------------+----------+------+-----+---------+-------+
+| patientname   | char(45) | YES  |     | NULL    |       |
+| age           | int(45)  | YES  |     | NULL    |       |
+| gender        | char(56) | YES  |     | NULL    |       |
+| appointmentno | int(90)  | YES  |     | NULL    |       |
++---------------+----------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> insert into patient values('priya',34,'f',5),('eshwar',56,'m',12),('shyam',19,'m',2),('ramya',24,'f',23);
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from patient;
++-------------+------+--------+---------------+
+| patientname | age  | gender | appointmentno |
++-------------+------+--------+---------------+
+| priya       |   34 | f      |             5 |
+| eshwar      |   56 | m      |            12 |
+| shyam       |   19 | m      |             2 |
+| ramya       |   24 | f      |            23 |
++-------------+------+--------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> alter table patient add(ph_no int(90));
+Query OK, 4 rows affected (0.02 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select  from patient;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from patient' at line 1
+mysql> select * from patient;
++-------------+------+--------+---------------+-------+
+| patientname | age  | gender | appointmentno | ph_no |
++-------------+------+--------+---------------+-------+
+| priya       |   34 | f      |             5 |  NULL |
+| eshwar      |   56 | m      |            12 |  NULL |
+| shyam       |   19 | m      |             2 |  NULL |
+| ramya       |   24 | f      |            23 |  NULL |
++-------------+------+--------+---------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> update patient set ph_no=12345 where patient;
+ERROR 1054 (42S22): Unknown column 'patient' in 'where clause'
+mysql> update patient set ph_no=12345 where patientname='priya';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  select * from patient;
++-------------+------+--------+---------------+-------+
+| patientname | age  | gender | appointmentno | ph_no |
++-------------+------+--------+---------------+-------+
+| priya       |   34 | f      |             5 | 12345 |
+| eshwar      |   56 | m      |            12 |  NULL |
+| shyam       |   19 | m      |             2 |  NULL |
+| ramya       |   24 | f      |            23 |  NULL |
++-------------+------+--------+---------------+-------+
+4 rows in set (0.00 sec)
+
+mysql>  select * from generalhospital ORDERBY staffnames;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'staffnames' at line 1
+mysql> select * from generalhospital ORDER BY staffnames;
++------------+------------+-------------+
+| staffnames | doctorname | patientname |
++------------+------------+-------------+
+| faima      | DR_inaya   | priya       |
+| rama       | DR_devi    | gnanesh     |
+| sheela     | DR_deepa   | bhargav     |
++------------+------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from patient HAVING age>25;
++-------------+------+--------+---------------+-------+
+| patientname | age  | gender | appointmentno | ph_no |
++-------------+------+--------+---------------+-------+
+| priya       |   34 | f      |             5 | 12345 |
+| eshwar      |   56 | m      |            12 |  NULL |
++-------------+------+--------+---------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select count(ages) in generalhospital;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'generalhospital' at line 1
+mysql> select count(ages) from generalhospital;
+ERROR 1054 (42S22): Unknown column 'ages' in 'field list'
+mysql> select count(age) from patient;
++------------+
+| count(age) |
++------------+
+|          4 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select max(age) from patients;
+ERROR 1146 (42S02): Table 'afroz.patients' doesn't exist
+mysql> select max(age) from patient;
++----------+
+| max(age) |
++----------+
+|       56 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select min(age) from patient;
++----------+
+| min(age) |
++----------+
+|       19 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select avg(appointmentno) from patient;
++--------------------+
+| avg(appointmentno) |
++--------------------+
+|            10.5000 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> delete from patient where ph_no;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from patient;
++-------------+------+--------+---------------+-------+
+| patientname | age  | gender | appointmentno | ph_no |
++-------------+------+--------+---------------+-------+
+| eshwar      |   56 | m      |            12 |  NULL |
+| shyam       |   19 | m      |             2 |  NULL |
+| ramya       |   24 | f      |            23 |  NULL |
++-------------+------+--------+---------------+-------+
+3 rows in set (0.01 sec)
