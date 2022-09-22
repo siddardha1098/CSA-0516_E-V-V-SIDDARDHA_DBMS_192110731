@@ -20,7 +20,7 @@ DML COMMANDS(SELECT with various clause GROUP BY ,HAVING,ORDER BY)-(https://gith
 ## EXPERIMENT-9
 JOINS-EQUI JOIN,OUTER JOIN,INNER JOIN(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%209.txt)
 ## EXPERIMENT-10
-VIEW,INDEX,SEQUENCE-()
+VIEW,INDEX,SEQUENCE-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%2010.txt)
 ## EXPERIMENT-22
 CASE SCENARIO-(BOOK PUBLISHING COMPANY)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%2022.txt)
 
