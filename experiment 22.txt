@@ -1,0 +1,126 @@
+mysql> create table bookpublisher(bookno int(40),bookname char(30),author char(20));
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> desc bookpublisher;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| bookno   | int(40)  | YES  |     | NULL    |       |
+| bookname | char(30) | YES  |     | NULL    |       |
+| author   | char(20) | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> create table customers;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> create table customers (customername char(20),mobileno int(12),bookprice int(10));
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> desc customers;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| customername | char(20) | YES  |     | NULL    |       |
+| mobileno     | int(12)  | YES  |     | NULL    |       |
+| bookprice    | int(10)  | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into bookpublisher into values(111,'harrypotter','afroz'),(222,'dbms','bhargav');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'into values(111,'harrypotter','afroz'),(222,'dbms','bhargav')' at line 1
+mysql>  insert into bookpublisher values(111,'harrypotter','afroz'),(222,'dbms','bhargav');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> desc bookpublisher;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| bookno   | int(40)  | YES  |     | NULL    |       |
+| bookname | char(30) | YES  |     | NULL    |       |
+| author   | char(20) | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from bookpublisher;
++--------+-------------+---------+
+| bookno | bookname    | author  |
++--------+-------------+---------+
+|    111 | harrypotter | afroz   |
+|    222 | dbms        | bhargav |
++--------+-------------+---------+
+2 rows in set (0.00 sec)
+
+mysql> insert into customers values('siddu',1122334455,500),('sasi',2233445566,200);
+ERROR 1264 (22003): Out of range value for column 'mobileno' at row 2
+mysql>  insert into customers values('siddu',1122355,500),('sasi',22334456,200);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from customers;
++--------------+----------+-----------+
+| customername | mobileno | bookprice |
++--------------+----------+-----------+
+| siddu        |  1122355 |       500 |
+| sasi         | 22334456 |       200 |
++--------------+----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> alter table bookpublisher add
+    -> (bookcost int(20));
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from bookpublisher;
++--------+-------------+---------+----------+
+| bookno | bookname    | author  | bookcost |
++--------+-------------+---------+----------+
+|    111 | harrypotter | afroz   |     NULL |
+|    222 | dbms        | bhargav |     NULL |
++--------+-------------+---------+----------+
+2 rows in set (0.00 sec)
+
+mysql> update bookpublisher set bookcost=299 where bookname='harrypotter';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from bookpublisher;
++--------+-------------+---------+----------+
+| bookno | bookname    | author  | bookcost |
++--------+-------------+---------+----------+
+|    111 | harrypotter | afroz   |      299 |
+|    222 | dbms        | bhargav |     NULL |
++--------+-------------+---------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from customers ORDER BY customername;
++--------------+----------+-----------+
+| customername | mobileno | bookprice |
++--------------+----------+-----------+
+| sasi         | 22334456 |       200 |
+| siddu        |  1122355 |       500 |
++--------------+----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from customers HAVING bookcost<300;
+ERROR 1054 (42S22): Unknown column 'bookcost' in 'having clause'
+mysql> select * from bookpublisher HAVING bookcose<300;
+ERROR 1054 (42S22): Unknown column 'bookcose' in 'having clause'
+mysql> select * from bookpublisher HAVING bookcost<300;
++--------+-------------+--------+----------+
+| bookno | bookname    | author | bookcost |
++--------+-------------+--------+----------+
+|    111 | harrypotter | afroz  |      299 |
++--------+-------------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> delete from bookpublisher where bookcost;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from bookpublisher;
++--------+----------+---------+----------+
+| bookno | bookname | author  | bookcost |
++--------+----------+---------+----------+
+|    222 | dbms     | bhargav |     NULL |
++--------+----------+---------+----------+
+1 row in set (0.00 sec)
