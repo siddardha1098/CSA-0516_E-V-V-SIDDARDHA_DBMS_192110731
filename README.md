@@ -15,6 +15,11 @@ DML COMMANDS(SELECT with various clause-WHERE,pattern matching)-(https://github.
 DML COMMANDS(SELECT with various clause,BETWEEN,IN,aggregate function)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%206.txt)
 ## EXPERIMENT-7
 DML COMMANDS(SELECT with various clause GROUP BY ,HAVING,ORDER BY)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%207.txt)
+## EXPERIMENT-8
+(SUB-QUERY AND CORRELATED QUERY)-https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/Experiment%208
+## EXPERIMENT-9
+JOINS-EQUI JOIN,OUTER JOIN,INNER JOIN()
 ## EXPERIMENT-22
 CASE SCENARIO-(BOOK PUBLISHING COMPANY)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%2022.txt)
+
 
