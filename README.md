@@ -10,11 +10,11 @@ DML COMMANDS(INSERT,DELETE)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SID
 ## EXPERIMENT-4
 dml commands(UPDATE,DELETE)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%204.txt)
 ## EXPERIMENT-5
-DML COMMANDS(SELECT with various clause-WHERE,pattern matching)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%205.txt)
+(SELECT with various clause-WHERE,pattern matching)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%205.txt)
 ## EXPERIMENT-6
-DML COMMANDS(SELECT with various clause,BETWEEN,IN,aggregate function)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%206.txt)
+(SELECT with various clause,BETWEEN,IN,aggregate function)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%206.txt)
 ## EXPERIMENT-7
-DML COMMANDS(SELECT with various clause GROUP BY ,HAVING,ORDER BY)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%207.txt)
+(SELECT with various clause GROUP BY ,HAVING,ORDER BY)-(https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/experiment%207.txt)
 ## EXPERIMENT-8
 (SUB-QUERY AND CORRELATED QUERY)-https://github.com/siddardha1098/CSA-0516_E-V-V-SIDDARDHA_DBMS_192110731/blob/main/Experiment%208
 ## EXPERIMENT-9
